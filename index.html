@@ -14,8 +14,8 @@
 			});
 			client.createSession().then(session => {
 				const prompt = "Hi, can you give me some advice on what to think about?";
-				client.sendMessage(prompt, {session: session.id}).then(response => {
-					const message = response.messages[0].text;
+				client.sendMessage(prompt, {sessionId: session.sessionId}).then(response => {
+					const message = response.data[0].text;
 					const chatMessage = document.createElement("div");
 					chatMessage.innerText = message;
 					chat.appendChild(chatMessage);
@@ -34,7 +34,7 @@
 			padding: 0;
 		}
 		#click-button {
-			position: absolute;
+			position: fixed;
 			bottom: 20px;
 			padding: 10px 20px;
 			font-size: 24px;
